@@ -1,13 +1,11 @@
 export default [
   {
+    id: 1,
     name: "Maria",
     title: "Queen",
-    animal: "dog",
+    age: 24,
+    isFavorite: true,
   },
-  {
-    name: "Elja",
-    title: "Specialist",
-    animal: "cat",
-  },
-  { name: "Anna", title: "Specialist", animal: "mouse" },
+  { id: 2, name: "Elja", title: "Specialist", age: 30, isFavorite: false },
+  { id: 3, name: "Anna", title: "Specialist", age: 42 },
 ];

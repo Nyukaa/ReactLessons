@@ -1,4 +1,4 @@
-function Person({ name, title, animal, salary, phone, email }) {
+function Person({ id, name, title, age, isFavorite, onClickHandler }) {
   return (
     <div className="person-card">
       <h2>{name}</h2>
@@ -6,17 +6,16 @@ function Person({ name, title, animal, salary, phone, email }) {
         <b>Title:</b> {title}
       </p>
       <p>
-        <b>Animal:</b> {animal}
+        <b>Age:</b> {age}
       </p>
-      {/* <p>
-        <b>Salary:</b> ${salary}
-      </p>
-      <p>
-        <b>Phone:</b> {phone}
-      </p>
-      <p>
-        <b>Email:</b> {email}
-      </p> */}
+      <button onClick={() => onClickHandler(id)}>
+        {isFavorite ? "Remove Favorite" : "Add Favorite"}
+      </button>
+      {isFavorite && (
+        <p>
+          <span>❤️</span> Favourite
+        </p>
+      )}
     </div>
   );
 }
