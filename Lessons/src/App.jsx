@@ -8,8 +8,8 @@ import { useState } from "react";
 import data from "./data";
 
 function App() {
-  const { count, setCount } = useCounter();
   const [persons, setPersons] = useState(data);
+  const { count, increment, decrement, reset, color } = useCounter();
 
   const handleClick = () => {
     // Use spread operator to create a new array
@@ -33,9 +33,21 @@ function App() {
           );
         })}
         <button onClick={handleClick}>Add Person</button>
-        <Counter count={count} setCount={setCount} />
+        <Counter
+          count={count}
+          increment={increment}
+          decrement={decrement}
+          reset={reset}
+          color={color}
+        />
       </main>
-      <Footer count={count} setCount={setCount} />
+      <Footer
+        count={count}
+        increment={increment}
+        decrement={decrement}
+        reset={reset}
+        color={color}
+      />
     </div>
   );
 }
