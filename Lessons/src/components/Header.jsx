@@ -1,7 +1,13 @@
+import { Link } from "react-router-dom";
+import "./Header.module.css";
 function Header() {
   return (
     <header className="header">
-      <h1>HR App</h1>
+      <h1>Lessons</h1>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+      </nav>
     </header>
   );
 }

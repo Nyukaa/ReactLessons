@@ -1,4 +1,13 @@
-function Person({ id, name, title, age, isFavorite, onClickHandler }) {
+import "../App.css";
+function Person({
+  id,
+  name,
+  title,
+  age,
+  isFavorite,
+  onClickHandler,
+  onDeleteHandler,
+}) {
   return (
     <div className="person-card">
       <h2>{name}</h2>
@@ -8,6 +17,7 @@ function Person({ id, name, title, age, isFavorite, onClickHandler }) {
       <p>
         <b>Age:</b> {age}
       </p>
+      <button onClick={() => onDeleteHandler(id)}>Delete Person</button>
       <button onClick={() => onClickHandler(id)}>
         {isFavorite ? "Remove Favorite" : "Add Favorite"}
       </button>
