@@ -5,19 +5,29 @@ import Home from "./Home";
 import About from "./About";
 import Layout from "./Layout";
 import ErrorPage from "./components/ErrorPage";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      { path: "/", element: <Home /> },
-      { path: "/about", element: <About /> },
-      { path: "*", element: <ErrorPage /> },
-    ],
-  },
-]);
-
+import useCounter from "./hooks/useCounter";
 function App() {
+  const { count, increment, decrement, reset, color } = useCounter();
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <Layout
+          count={count}
+          increment={increment}
+          decrement={decrement}
+          reset={reset}
+          color={color}
+        />
+      ),
+      children: [
+        { path: "/", element: <Home /> },
+        { path: "/about", element: <About /> },
+        { path: "*", element: <ErrorPage /> },
+      ],
+    },
+  ]);
+
   return (
     <RouterProvider router={router} />
 

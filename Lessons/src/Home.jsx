@@ -63,6 +63,15 @@ function Home() {
 
   return (
     <div className="app">
+      <div className="counter-container">
+        <Counter
+          count={count}
+          increment={increment}
+          decrement={decrement}
+          reset={reset}
+          color={color}
+        />
+      </div>
       <CardForm_M
         formData={formData}
         setFormData={setFormData}
@@ -78,25 +87,7 @@ function Home() {
             onDeleteHandler={handleDelete}
           />
         ))}
-
-        {/* <button onClick={handleClick}>Add Person</button> */}
-
-        <Counter
-          count={count}
-          increment={increment}
-          decrement={decrement}
-          reset={reset}
-          color={color}
-        />
       </main>
-
-      {/* <Footer
-        count={count}
-        increment={increment}
-        decrement={decrement}
-        reset={reset}
-        color={color}
-      /> */}
     </div>
   );
 }

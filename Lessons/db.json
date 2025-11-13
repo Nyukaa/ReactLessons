@@ -1,0 +1,35 @@
+{
+  "persons": [
+    {
+      "id": "1",
+      "name": "Maria",
+      "title": "Queen",
+      "age": 24,
+      "isFavorite": true
+    },
+    {
+      "id": "2",
+      "name": "Elja",
+      "title": "Specialist",
+      "age": 30,
+      "isFavorite": false
+    },
+
+    {
+      "id": "5",
+      "name": "Anna DD",
+      "title": "ad",
+      "age": "33",
+      "isFavorite": true
+    }
+  ],
+  "somepersons": [
+    {
+      "id": "1",
+      "name": "Maria",
+      "title": "Queen",
+      "age": 24,
+      "isFavorite": true
+    }
+  ]
+}

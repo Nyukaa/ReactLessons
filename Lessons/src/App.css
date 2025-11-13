@@ -37,6 +37,11 @@ button {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.counter-container {
+  text-align: center;
+  margin-top: 2rem;
+}
 .person-card {
   background: white;
   border-radius: 1rem;

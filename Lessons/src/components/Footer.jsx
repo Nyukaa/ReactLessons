@@ -9,7 +9,7 @@ function Footer({ count, increment, decrement, reset, color }) {
         increment={increment}
         decrement={decrement}
         reset={reset}
-        color={color}
+        color="white"
       />
     </footer>
   );
