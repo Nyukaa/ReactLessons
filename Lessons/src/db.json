@@ -1,11 +1,10 @@
 {
   "persons": [
     {
-      "id": "1",
       "name": "Maria",
       "title": "Queen",
-      "age": 24,
-      "isFavorite": true
+      "age": "26",
+      "id": "1"
     },
     {
       "id": "2",
@@ -14,13 +13,12 @@
       "age": 30,
       "isFavorite": false
     },
-
     {
       "id": "5",
-      "name": "Anna DD",
-      "title": "ad",
-      "age": "33",
-      "isFavorite": true
+      "name": "Anna",
+      "title": "Specialist",
+      "age": 30,
+      "isFavorite": false
     }
   ],
   "somepersons": [

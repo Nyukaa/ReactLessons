@@ -1,4 +1,5 @@
 import "../App.css";
+import { useNavigate } from "react-router-dom";
 function Person({
   id,
   name,
@@ -8,6 +9,7 @@ function Person({
   onClickHandler,
   onDeleteHandler,
 }) {
+  const navigate = useNavigate();
   return (
     <div className="person-card">
       <h2>{name}</h2>
@@ -26,6 +28,7 @@ function Person({
           <span>❤️</span> Favourite
         </p>
       )}
+      <button onClick={() => navigate(`/employee/${id}`)}>nav</button>
     </div>
   );
 }
