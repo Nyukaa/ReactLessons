@@ -1,9 +1,10 @@
 //Martin's version
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+// import Header from "./components/Header";
+// import Footer from "./components/Footer";
 import Person from "./components/Person";
 import Counter from "./components/Counter";
 import CardForm_M from "./components/CardForm_M.jsx";
+
 import "./App.css";
 import useCounter from "./hooks/useCounter";
 import { useEffect, useState } from "react";
@@ -18,10 +19,21 @@ function Home() {
     title: "",
     age: "",
   });
+  const [loading, setLoading] = useState(false);
+  console.log("Component rendered");
   useEffect(() => {
-    axios.get("http://localhost:3001/persons").then((response) => {
-      setPersons(response.data);
-    });
+    setLoading(true);
+    axios
+      .get("http://localhost:3001/persons")
+      .then((response) => {
+        setPersons(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching persons:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
   const handleClick = () => {
     const newPerson = {
@@ -60,7 +72,9 @@ function Home() {
 
     setPersons(updatedPersons);
   };
-
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="app">
       <div className="counter-container">
