@@ -25,7 +25,7 @@ function Home() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:3001/persons")
+      .get("/persons")
       .then((response) => {
         setPersons(response.data);
       })
@@ -46,7 +46,7 @@ function Home() {
     };
 
     axios
-      .post("http://localhost:3001/persons", newPerson)
+      .post("/persons", newPerson)
       .then((response) => {
         setPersons([...persons, response.data]);
       })
@@ -56,7 +56,7 @@ function Home() {
   };
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:3001/persons/${id}`)
+      .delete(`/persons/${id}`)
       .then(() => {
         const updatedPersons = persons.filter((person) => person.id !== id);
         setPersons(updatedPersons);

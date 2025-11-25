@@ -15,7 +15,7 @@ const SingleEmployee = () => {
     age: person?.age || "",
   });
 
-  const url = `http://localhost:3001/persons/`;
+  const url = `/persons/`;
 
   const { data, loading, error: fetchError } = useAxios(url);
 
@@ -45,7 +45,7 @@ const SingleEmployee = () => {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await axios.get(`http://localhost:3001/persons/${id}`);
+        const response = await axios.get(`/persons/${id}`);
         setPerson(response.data);
       } catch (err) {
         console.error("Error fetching person:", err);
@@ -61,10 +61,7 @@ const SingleEmployee = () => {
   const handleSave = async (e) => {
     // e.preventDefault();
     try {
-      const response = await axios.put(
-        `http://localhost:3001/persons/${id}`,
-        formData
-      );
+      const response = await axios.put(`/persons/${id}`, formData);
       setPerson(response.data);
       setIsEditing(false);
     } catch (err) {
