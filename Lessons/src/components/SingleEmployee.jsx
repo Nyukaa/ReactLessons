@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import useAxios from "../hooks/useAxios";
 
 const SingleEmployee = () => {
   const { id } = useParams();
   const [person, setPerson] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isEditing, setIsEditing] = useState(true);
   const [formData, setFormData] = useState({
@@ -14,15 +15,19 @@ const SingleEmployee = () => {
     age: person?.age || "",
   });
 
+  const url = `http://localhost:3001/persons/`;
+
+  const { data, loading, error: fetchError } = useAxios(url);
+
   useEffect(() => {
-    if (person) {
+    if (data) {
       setFormData({
-        name: person.name,
-        title: person.title,
-        age: person.age,
+        name: data?.name,
+        title: data?.title,
+        age: data?.age,
       });
     }
-  }, [person]);
+  }, [id, data]);
 
   const handleChange = (e) => {
     setFormData((prevState) => ({
@@ -34,9 +39,10 @@ const SingleEmployee = () => {
   const toggleEditing = () => {
     setIsEditing(!isEditing);
   };
+
   useEffect(() => {
     const fetchPerson = async () => {
-      setLoading(true);
+      setIsLoading(true);
       setError(null);
       try {
         const response = await axios.get(`http://localhost:3001/persons/${id}`);
@@ -45,7 +51,7 @@ const SingleEmployee = () => {
         console.error("Error fetching person:", err);
         setError("Failed to fetch person");
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
@@ -65,7 +71,7 @@ const SingleEmployee = () => {
       console.error("Error updating person:", err);
     }
   };
-  if (loading) return <div>Loading...</div>;
+  if (loading || isLoading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
   if (!person) return <div>No person found</div>;
   if (isEditing) {

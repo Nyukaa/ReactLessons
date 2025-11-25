@@ -1,6 +1,8 @@
 import "../App.css";
 import { useNavigate } from "react-router-dom";
-function Person({
+import PropTypes from "prop-types";
+
+const Person = ({
   id,
   name,
   title,
@@ -8,8 +10,12 @@ function Person({
   isFavorite,
   onClickHandler,
   onDeleteHandler,
-}) {
+}) => {
   const navigate = useNavigate();
+
+  console.log("id:", id, "type:", typeof id); // ✅ log id type
+  console.log("name:", name, "type:", typeof name); // ✅ log name type
+
   return (
     <div className="person-card">
       <h2>{name}</h2>
@@ -31,5 +37,15 @@ function Person({
       <button onClick={() => navigate(`/employee/${id}`)}>nav</button>
     </div>
   );
-}
+};
+Person.propTypes = {
+  //id: PropTypes.string.isRequired || PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+  isFavorite: PropTypes.bool,
+  onClickHandler: PropTypes.func.isRequired,
+  onDeleteHandler: PropTypes.func.isRequired,
+};
 export default Person;

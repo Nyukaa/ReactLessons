@@ -4,11 +4,12 @@
 import Person from "./components/Person";
 import Counter from "./components/Counter";
 import CardForm_M from "./components/CardForm_M.jsx";
-
+import DeleteIcon from "@mui/icons-material/Delete";
 import "./App.css";
 import useCounter from "./hooks/useCounter";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Button from "@mui/material/Button";
 //import data from "./data";
 function Home() {
   const [persons, setPersons] = useState([]);
@@ -77,6 +78,20 @@ function Home() {
   }
   return (
     <div className="app">
+      <Button
+        startIcon={<DeleteIcon />}
+        variant="contained"
+        color="primary"
+        sx={{ margin: 2, color: "biege", padding: 2 }}
+      >
+        Btn from the Mui
+      </Button>
+      <Button variant="contained" color="secondary">
+        2 Btn from the Mui
+      </Button>
+      <Button variant="contained" color="limeGreen">
+        3 Btn from the Mui
+      </Button>
       <div className="counter-container">
         <Counter
           count={count}
