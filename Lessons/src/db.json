@@ -12,13 +12,6 @@
       "title": "Specialist",
       "age": 30,
       "isFavorite": false
-    },
-    {
-      "id": "5",
-      "name": "Anna",
-      "title": "Specialist",
-      "age": 30,
-      "isFavorite": false
     }
   ],
   "somepersons": [

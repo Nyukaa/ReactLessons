@@ -4,7 +4,7 @@
 import Person from "./components/Person";
 import Counter from "./components/Counter";
 import CardForm_M from "./components/CardForm_M.jsx";
-
+import CustomKideImage from "./components/CustomKideImage";
 import "./App.css";
 import useCounter from "./hooks/useCounter";
 import { useEffect, useState } from "react";
@@ -91,6 +91,7 @@ function Home() {
         setFormData={setFormData}
         handleClick={handleClick}
       />
+      <div></div>
 
       <main className="main-content">
         {persons.map((person) => (
@@ -101,6 +102,7 @@ function Home() {
             onDeleteHandler={handleDelete}
           />
         ))}
+        <CustomKideImage />
       </main>
     </div>
   );
