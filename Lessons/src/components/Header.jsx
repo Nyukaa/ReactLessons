@@ -34,6 +34,9 @@ function Header() {
           <Button color="inherit" component={Link} to="/todos">
             Todos
           </Button>
+          <Button color="inherit" component={Link} to="/personsPage">
+            Table
+          </Button>
         </Box>
       </Toolbar>
     </AppBar>

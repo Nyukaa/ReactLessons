@@ -5,6 +5,7 @@ import Home from "./Home";
 import About from "./About";
 import Layout from "./Layout";
 import ErrorPage from "./components/ErrorPage";
+import PersonsPage from "./PersonsPage.jsx";
 import useCounter from "./hooks/useCounter";
 import Todos from "./components/Todos.jsx";
 import SingleEmployee from "./components/SingleEmployee.jsx";
@@ -24,6 +25,7 @@ function App() {
       ),
       children: [
         { path: "/", element: <Home /> },
+        { path: "/personsPage", element: <PersonsPage /> },
         { path: "/about", element: <About /> },
         { path: "/todos", element: <Todos /> },
         { path: "/employee/:id", element: <SingleEmployee /> },

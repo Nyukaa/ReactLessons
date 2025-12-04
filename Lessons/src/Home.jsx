@@ -89,9 +89,7 @@ function Home() {
       <Button variant="contained" color="secondary">
         2 Btn from the Mui
       </Button>
-      <Button variant="contained" color="limeGreen">
-        3 Btn from the Mui
-      </Button>
+
       <div className="counter-container">
         <Counter
           count={count}
